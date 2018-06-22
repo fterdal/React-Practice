@@ -1,22 +1,70 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+/**
+ * Remember:
+ * - You do not need to configure webpack or babel,
+ * - you do not need to install any node packages
+ * - you do not need to create any new files or directories
+ *
+ * Just write code. 🙂
+*/
+
+const Emoji = (props) => {
+  const { name, pic, country, rating } = props.emoji
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>{pic}</td>
+      <td>{country}</td>
+      <td>{rating}</td>
+    </tr>
+  )
+}
+
+const EmojiTable = (props) => {
+  const { emojis } = props
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Picture</th>
+          <th>Country</th>
+          <th>Rating</th>
+        </tr>
+          {emojis.map(emoji => (
+            <Emoji key={emoji.name} emoji={emoji} />
+          ))}
+      </tbody>
+    </table>
+  )
+}
+
+const emojiContestants = [
+  {
+    name: 'Smiley',
+    pic: '😀',
+    country: '🇺🇸',
+    rating: 7,
+  },
+  {
+    name: 'Burger',
+    pic: '🍔',
+    country: '🇩🇪',
+    rating: 8,
+  },
+]
+
 const App = () => (
   <div>
-    <h1>Hello from React!</h1>
-    <p>Riddle: We come at night without being fetched; we disappear by day without being stolen. What are we?</p>
-    <p style={{fontStyle: 'italic'}}>Pop open the developer tools to see the answer.</p>
+    <h1>World "Emoji" Cup</h1>
+    <h2>Which Emoji will reign supreme?</h2>
+    <EmojiTable emojis={emojiContestants} />
   </div>
 )
-
-console.log(`Answer:
-✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ 
-✨ ✨ ✨ Stars ✨ ✨ ✨
-✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ 
-`)
 
 render(
   <App />,
   document.getElementById('app')
 )
-
