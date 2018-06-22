@@ -2,20 +2,20 @@ export default [
   {
     name: 'Smiley',
     pic: '😀',
-    country: '🇺🇸',
-    rating: 7,
+    country: '🇪🇬',
+    rating: 9,
   },
   {
     name: 'Burger',
     pic: '🍔',
     country: '🇩🇪',
-    rating: 8,
+    rating: 10,
   },
   {
     name: 'Dragon',
     pic: '🐲',
     country: '🇨🇳',
-    rating: 10,
+    rating: 11,
   },
   {
     name: 'Poop',
